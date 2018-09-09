@@ -1,0 +1,11 @@
+{
+  "name": "config-workspaces",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "find-root": "^1.1.0",
+    "fs-extra": "^7.0.0",
+    "glob": "^7.1.3"
+  }
+}

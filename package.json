@@ -1,0 +1,17 @@
+{
+  "name": "react-native-web-boilerplate",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:mqschwanda/react-native-web-boilerplate.git",
+  "author": "mqschwanda <mqschwanda@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "create-react-app": "^1.5.2",
+    "create-react-native-app": "^1.0.0",
+    "firebase-tools": "^4.2.1"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "app",
+  "version": "0.0.1",
+  "main": "App.js",
+  "license": "MIT",
+  "devDependencies": {
+    "react-test-renderer": "16.3.1"
+  }
+}
