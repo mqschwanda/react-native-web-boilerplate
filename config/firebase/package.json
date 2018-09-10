@@ -1,0 +1,7 @@
+{
+  "name": "@config/firebase",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true
+}
