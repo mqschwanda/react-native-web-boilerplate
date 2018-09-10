@@ -1,1 +1,1 @@
-require('config-workspaces').linkWorkspaces(__dirname);
+require('@config/workspaces').linkWorkspaces(__dirname);

@@ -1,1 +1,1 @@
-module.exports = require('config-workspaces').getRnCliConfig(__dirname);
+module.exports = require('@config/workspaces').getRnCliConfig(__dirname);
