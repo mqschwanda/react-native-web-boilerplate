@@ -1,7 +1,21 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+// https://github.com/mqschwanda/node-monorepo/tree/master/packages/firebase-containers
+import { firestoreContainer } from '@mqschwanda/firebase-containers';
 
-const App = (props) => (
+import { db, seeder } from './firebase';
+
+const doc = db.collection(seeder.collection).doc(seeder.id);
+const container = firestoreContainer(doc);
+
+
+const Snapshot = container(({ snapshot }) =>
+  <Text style={StyleSheet.compose(styles.text, { paddingTop: fontSize })}>
+    Snapshot.data() --> {JSON.stringify(snapshot.data())}
+  </Text>
+);
+
+const App = props => (
   <View style={styles.container}>
     <Text style={styles.title}>
       Welcome to React
@@ -12,10 +26,14 @@ const App = (props) => (
     <Text style={styles.text}>
       Changes you make will automatically reload.
     </Text>
+    <Snapshot />
   </View>
 );
 
 export default App;
+
+const fontSize = 12;
+const color = '#222';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,11 +43,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    fontSize: 34,
-    color: '#222'
+    fontSize: fontSize * 3,
+    color,
   },
   text: {
-    fontSize: 12,
-    color: '#222',
+    fontSize,
+    color,
   },
 });
