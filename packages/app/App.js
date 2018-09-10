@@ -1,6 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-// https://github.com/mqschwanda/node-monorepo/tree/master/packages/firebase-containers
+/**
+ * firebase firestore data contianers
+ * @see {@link https://github.com/mqschwanda/node-monorepo/tree/master/packages/firebase-containers}
+ */
 import { firestoreContainer } from '@mqschwanda/firebase-containers';
 
 import { db, seeder } from './firebase';
@@ -8,11 +11,8 @@ import { db, seeder } from './firebase';
 const doc = db.collection(seeder.collection).doc(seeder.id);
 const container = firestoreContainer(doc);
 
-
 const Snapshot = container(({ snapshot }) =>
-  <Text style={StyleSheet.compose(styles.text, { paddingTop: fontSize })}>
-    Snapshot.data() --> {JSON.stringify(snapshot.data())}
-  </Text>
+  <Text style={styles.text}>{JSON.stringify(snapshot.data())}</Text>
 );
 
 const App = props => (
@@ -26,7 +26,9 @@ const App = props => (
     <Text style={styles.text}>
       Changes you make will automatically reload.
     </Text>
-    <Snapshot />
+    <Text style={StyleSheet.compose(styles.text, { paddingTop: fontSize })}>
+      Snapshot.data() --> <Snapshot />
+    </Text>
   </View>
 );
 
