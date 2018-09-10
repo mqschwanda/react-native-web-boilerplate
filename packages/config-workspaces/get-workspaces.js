@@ -5,9 +5,21 @@ const glob = require('glob');
 const getRoot = require('./get-root');
 const getPackages = require('./get-packages');
 
-module.exports = function getWorkspaces(from) {
-  const root = getRoot(from);
-  const packages = getPackages(require(path.join(root, 'package.json')));
+/**
+ * [getWorkspaces description]
+ * @param  {[type]} [from = __dirname] [description]
+ * @return {[type]}                    [description]
+ */
+function getWorkspaces(from = __dirname) {
+  const root = getRoot(from); // workspaces root
+  const pkg = require(path.join(root, 'package.json')); // workspaces `package.json` contents
+  const packages = getPackages(pkg); // array of worksace packages
 
-  return flatten(packages.map(name => glob.sync(path.join(root, `${name}/`)))); // The trailing / ensures only dirs are picked up
-};
+  // synchronous glob search to get a directory from package name
+  const getPackageDir = name => glob.sync(path.join(root, `${name}/`));
+
+  // flatten arrays of arrays into a single array of non-arrays.
+  return flatten(packages.map(getPackageDir));
+}
+
+module.exports = getWorkspaces;

@@ -7,7 +7,7 @@ const App = (props) => (
       Welcome to React
     </Text>
     <Text style={styles.text}>
-      Open up App.js to start working on your app!
+      Open up `packages/app/App.js` to start working on your app!
     </Text>
     <Text style={styles.text}>
       Changes you make will automatically reload.

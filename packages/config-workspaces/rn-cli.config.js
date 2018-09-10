@@ -1,16 +1,16 @@
 const path = require('path');
 const blacklist = require('metro/src/blacklist');
+
 const getWorkspaces = require('./get-workspaces');
 
-module.exports = function getRnCliConfig(from, options = {}) {
+function getRnCliConfig(from, options = {}) {
   const workspaces = getWorkspaces(from);
 
-  function getRoots() {
-    return [
-      path.resolve(from), // Keep project directory
-      options.nodeModules || path.resolve(from, '../..', 'node_modules'), // Include forked package as a new root
-    ].concat(workspaces)
-  }
+  const getRoots = () => [
+    path.resolve(from), // Keep project directory
+    options.nodeModules || path.resolve(from, '../..', 'node_modules'), // Include forked package as a new root
+  ].concat(workspaces);
+
   /**
    * Metro resolver configuration
    * @see {@link https://facebook.github.io/metro/docs/en/configuration#resolver-options}
@@ -30,9 +30,10 @@ module.exports = function getRnCliConfig(from, options = {}) {
     getAssetRoots: getRoots,
     extraNodeModules: {
       'react-native': path.resolve(from, 'node_modules/react-native'),
-      // '@expo/vector-icons': path.resolve(from, 'node_modules/@expo/vector-icons'),
     },
   };
 
   return config;
-};
+}
+
+module.exports = getRnCliConfig;
