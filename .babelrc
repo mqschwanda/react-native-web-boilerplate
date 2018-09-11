@@ -1,8 +1,15 @@
 {
-  "presets": ["env", "react", "stage-2"],
+  "presets": [
+    "expo",
+    "env",
+    "react",
+    "stage-2"
+  ],
   "env": {
     "development": {
-      "plugins": ["transform-react-jsx-source"]
+      "plugins": [
+        "transform-react-jsx-source"
+      ]
     }
   }
 }

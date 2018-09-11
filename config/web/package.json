@@ -2,22 +2,19 @@
   "name": "web",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "react": "^16.3.1",
-    "react-art": "^16.3.2",
-    "react-dom": "~16.3.2",
-    "react-native-web": "^0.8.9"
-  },
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject"
   },
+  "dependencies": {
+    "react": "^16.3.1",
+    "react-art": "^16.3.2",
+    "react-dom": "~16.3.2",
+    "react-native-web": "^0.8.9"
+  },
   "devDependencies": {
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
     "react-app-rewired": "^1.6.2",
     "react-scripts": "1.1.5"
   }

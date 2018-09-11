@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View } from 'react-native';
 /**
  * firebase firestore data contianers
  * @see {@link https://github.com/mqschwanda/node-monorepo/tree/master/packages/firebase-containers}
@@ -11,8 +11,11 @@ import { db, seeder } from './firebase';
 const doc = db.collection(seeder.collection).doc(seeder.id);
 const container = firestoreContainer(doc);
 
+const Code = ({ style, ...props }) =>
+  <Text style={StyleSheet.compose(styles.code, style)} {...props} />;
+
 const Snapshot = container(({ snapshot }) =>
-  <Text style={styles.text}>{JSON.stringify(snapshot.data())}</Text>
+  <Code style={styles.text}>{JSON.stringify(snapshot.data())}</Code>
 );
 
 const App = props => (
@@ -21,7 +24,7 @@ const App = props => (
       Welcome to React
     </Text>
     <Text style={styles.text}>
-      Open up `packages/app/App.js` to start working on your app!
+      Open up `<Code>app/App.js</Code>` to start working on your app!
     </Text>
     <Text style={styles.text}>
       Changes you make will automatically reload.
@@ -51,5 +54,8 @@ const styles = StyleSheet.create({
   text: {
     fontSize,
     color,
+  },
+  code: {
+    fontFamily: Platform.OS === 'ios' ? 'Courier New' : 'monospace',
   },
 });

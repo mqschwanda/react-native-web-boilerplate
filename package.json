@@ -7,25 +7,33 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "packages/*",
+    "app",
     "config/*",
     "functions"
   ],
   "devDependencies": {
+    "babel-jest": "^23.6.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-expo": "^4.0.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "create-react-app": "^1.5.2",
     "create-react-native-app": "^1.0.0",
-    "firebase-tools": "^4.2.1"
+    "eslint": "^5.5.0",
+    "eslint-config-universe": "^1.0.7",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-react-native": "^3.3.0",
+    "firebase-tools": "^4.2.1",
+    "jest-cli": "^23.6.0",
+    "prettier": "^1.14.2"
   },
   "scripts": {
-    "start-web": "cd packages/web && yarn start",
-    "build-web": "cd packages/web && yarn build",
-    "test-web": "cd packages/web && yarn test",
-    "eject-web": "cd packages/web && yarn eject",
-
-    "start-native": "cd packages/native && yarn start",
-    "android": "cd packages/native && yarn android",
-    "ios": "cd packages/native && yarn ios",
-    "test-native": "cd packages/native && yarn test",
-    "eject-native": "cd packages/native && yarn eject"
+    "start-web": "cd config/web && yarn start",
+    "build-web": "cd config/web && yarn build",
+    "test-web": "cd config/web && yarn test",
+    "start-native": "cd config/native && yarn start",
+    "android": "cd config/native && yarn android",
+    "ios": "cd config/native && yarn ios",
+    "test-native": "cd config/native && yarn test"
   }
 }

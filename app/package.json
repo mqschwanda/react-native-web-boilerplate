@@ -1,0 +1,17 @@
+{
+  "name": "app",
+  "version": "0.0.1",
+  "main": "App.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --config ../../jestrc.js"
+  },
+  "dependencies": {
+    "@mqschwanda/compose": "^0.0.1",
+    "@mqschwanda/firebase-containers": "0.0.21",
+    "firebase": "^5.4.2"
+  },
+  "devDependencies": {
+    "react-test-renderer": "16.3.1"
+  }
+}

@@ -29,15 +29,17 @@ firebase.firestore().settings({
        SF: { name: 'San Francisco' },
        LA: { name: 'Los Angeles' },
      },
-     users: [{
-       email: 'test.user@gmail.com',
-       password: 'password',
-     }]
+      users: [
+        {
+         email: 'test.user@gmail.com',
+         password: 'password',
+        },
+      ],
    },
  };
 };
 
-export const killFirebase = (app) => {
+export const killFirebase = app => {
   app.database().goOffline();
   app.delete();
 };
@@ -54,7 +56,7 @@ describe('firebase', () => {
   });
 
   describe('firestore', () => {
-    it('should configure service', (done) => {
+    it('should configure service', done => {
       const { firestore } = firebase.firestore()._config.firebaseApp.services_;
       expect(firestore).toBeDefined();
 
@@ -63,7 +65,7 @@ describe('firebase', () => {
   });
 
   describe('database', () => {
-    it('should configure service', (done) => {
+    it('should configure service', done => {
       const { database } = firebase.database().repo_.app.services_;
       expect(database).toBeDefined();
 

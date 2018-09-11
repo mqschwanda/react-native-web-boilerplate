@@ -1,5 +1,5 @@
 // Firebase App is always required and must be first
-import firebase  from 'firebase/app';
+import firebase from 'firebase/app';
 
 // rename firebase.config.example.js --> firebase.config.js and enter information
 import config from '@config/firebase/firebase.config';
